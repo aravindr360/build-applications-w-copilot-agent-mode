@@ -1,6 +1,6 @@
 import express from 'express';
-import { connectDatabase } from './config/database.js';
-import { Activity, LeaderboardEntry, Team, User, Workout, } from './models/index.js';
+import { connectDatabase } from './config/database.ts';
+import { Activity, LeaderboardEntry, Team, User, Workout, } from './models/index.ts';
 export const app = express();
 app.use(express.json());
 const port = Number(process.env.PORT) || 8000;
