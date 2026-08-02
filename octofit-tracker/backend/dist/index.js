@@ -1,13 +1,16 @@
 import express from 'express';
-import { connectDatabase } from './config/database.ts';
-import { Activity, LeaderboardEntry, Team, User, Workout, } from './models/index.ts';
+import { connectDatabase } from "./config/database.js";
+import { Activity, LeaderboardEntry, Team, User, Workout, } from "./models/index.js";
 export const app = express();
 app.use(express.json());
 const port = Number(process.env.PORT) || 8000;
-const codespaceName = process.env.CODESPACE_NAME;
-const baseUrl = codespaceName
-    ? `https://${codespaceName}-8000.app.github.dev`
-    : `http://localhost:${port}`;
+export const getApiBaseUrl = (portNumber, codespaceName) => {
+    const resolvedCodespaceName = codespaceName === undefined ? process.env.CODESPACE_NAME : codespaceName;
+    return resolvedCodespaceName
+        ? `https://${resolvedCodespaceName}-8000.app.github.dev`
+        : `http://localhost:${portNumber}`;
+};
+const baseUrl = getApiBaseUrl(port);
 const fallbackUsers = [{ name: 'Ada', email: 'ada@example.com', role: 'captain' }];
 const fallbackTeams = [{ name: 'Rocket Squad', members: 4 }];
 const fallbackActivities = [{ type: 'run', duration: 30, notes: 'Morning run' }];

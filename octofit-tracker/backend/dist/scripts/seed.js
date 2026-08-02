@@ -1,5 +1,5 @@
-import { connectDatabase } from '../config/database.ts';
-import { Activity, LeaderboardEntry, Team, User, Workout, } from '../models/index.ts';
+import { connectDatabase } from "../config/database.js";
+import { Activity, LeaderboardEntry, Team, User, Workout, } from "../models/index.js";
 await connectDatabase();
 console.log('Seed the octofit_db database with test data');
 const sampleUsers = [
