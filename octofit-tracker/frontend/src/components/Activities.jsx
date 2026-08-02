@@ -9,6 +9,7 @@ const Activities = () => {
   useEffect(() => {
     const fetchActivities = async () => {
       try {
+        // https://${import.meta.env.VITE_CODESPACE_NAME}-8000.app.github.dev/api/activities/
         const response = await fetch(buildApiUrl('/api/activities/'));
         if (!response.ok) {
           throw new Error('Unable to load activities');

@@ -8,7 +8,9 @@ const Users = () => {
 
   useEffect(() => {
     const fetchUsers = async () => {
-      try {
+      try { 
+        // Codespaces endpoint:
+// https://${import.meta.env.VITE_CODESPACE_NAME}-8000.app.github.dev/api/users/
         const response = await fetch(buildApiUrl('/api/users/'));
         if (!response.ok) {
           throw new Error('Unable to load users');

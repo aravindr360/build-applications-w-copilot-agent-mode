@@ -9,6 +9,7 @@ const Leaderboard = () => {
   useEffect(() => {
     const fetchLeaderboard = async () => {
       try {
+        // https://${import.meta.env.VITE_CODESPACE_NAME}-8000.app.github.dev/api/leaderboard/
         const response = await fetch(buildApiUrl('/api/leaderboard/'));
         if (!response.ok) {
           throw new Error('Unable to load leaderboard');
