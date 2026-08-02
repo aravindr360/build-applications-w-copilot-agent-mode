@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { app, getApiBaseUrl } from './index.ts';
+import { app, getApiBaseUrl } from './server.ts';
 
 test('express app exposes the API entry point', () => {
   assert.ok(app);
